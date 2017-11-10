@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Resume</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+      <script src="./node_modules/angular/angular.min.js"></script>
+      <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+      <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+      <script src="./script/search.js"></script>
+      <nav class="navbar navbar-default">
+        <a class="navbar-brand" href="#">简历搜素</a>
+      </nav>
+  </head>
+  <body>
+      <div class='container' ng-app="myapp" ng-controller ="customerCtrl" ng-init="search()">
+          
+          <h3>Advancesharp - Powerful paging, sorting and searching with delay </h3>
+          <div class="input-group">
+            <input type="text"
+                   ng-model ="criteria.searchtext" 
+                   ng-model-options="{debounce: {'default': 1000, 'blur': 0}}"
+                   class="form-control" 
+                   placeholder="Search" >
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+                                                     
+          <div>
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading h4">
+                  Customer table search, sort, & paging by 
+                  <a href="http://www.advancesharp.com" target='_blank'>Advancesharp.com</a>
+              </div>
+        
+              <!-- Table --> 
+              <table class="table table-border">
+              <tr>
+                <th ng-click="criteria.sort = 'Name'; ">
+                  Customer  Name       
+                </th>
+                <th ng-click="criteria.sort = 'City';">
+                  City
+                </th>
+                <th ng-click="criteria.sort = 'Country';">
+                  Country
+                </th>
+              </tr>
+              <tr ng-repeat="customer in customers">
+                <td ng-bind="customer.Name"></td>
+                <td ng-bind="customer.City"></td>
+                <td ng-bind="customer.Country"></td>
+              </tr>
+            </table>
+            </div>
+          </div>
+                                              
+        <div class="row">
+          <div class="pull-right">                               
+            <ul class="pagination" >                           
+              <li ng-class="{'active': item === criteria.page}" ng-repeat='item in paging.pagearray'>
+        
+                <a ng-if="item == 'Prev'" ng-click="Prev()">Prev</a>
+        
+                 <a ng-if="(!(item == 'Prev' || item == 'Next' ||  item == '..' || item == '...'))" 
+                    ng-click="criteria.page = item;" >{{item}}</a>
+        
+                 <!-- No click event -->                                          
+                 <a ng-if="(item == '..' || item == '...')" >{{item}}</a> 
+        
+                 <a ng-if="item == 'Next'" ng-click="Next()">Next</a>
+              </li>
+            </ul>
+           </div>  
+        </div>  
+                                                            
+            <!-- Dropdown Style -->  
+            <div class="row" style="background-color:#f1e1d1; padding:7px;">
+                <div class="col-lg-6 ">                              
+                    Showing: {{(criteria.page -1) * criteria.pagesize + 1}} - 
+                             {{ ((criteria.page -1) * criteria.pagesize + paging.showing)}} 
+                    of {{paging.total}} Records
+                </div>   
+                                                
+                <div class="col-lg-6 ">  
+                  <div class="pull-right">                           
+                    Page: <input type='number' 
+                                 ng-model='criteria.page'
+                                 min="1"
+                                 max="{{paging.totalpages}}"
+                                 style='width:70px;' />
+                    of {{paging.totalpages}}
+                    with page size <select ng-model="criteria.pagesize" ng-options="obj as obj for obj in paging.pagingOptions">  
+                  </div>
+                </div>
+            </div>    
+        
+        </div>
+  </body>
+</html>
