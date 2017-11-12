@@ -7,6 +7,7 @@ angular.module('myapp', ['ngAnimate'])
         sort: 'Name',
         desc : false 
       };
+
       $scope.paging ={
         total : 0,
         totalpages: 0,
@@ -14,6 +15,7 @@ angular.module('myapp', ['ngAnimate'])
         pagearray: [],
         pagingOptions: [5,10,20,30,40,50]
       };
+      
       $scope.search = function(){   
         $scope.customers =  ($filter('filter')(customers, {Name: $scope.criteria.searchtext }));
         $scope.paging.total = $scope.customers.length;    
