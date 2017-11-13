@@ -121,19 +121,35 @@
               <table class="table table-border">
               <tr>
                 <th ng-click="criteria.sort = 'Name'; ">
-                  Customer  Name       
+                    简历名称      
                 </th>
                 <th ng-click="criteria.sort = 'City';">
-                  City
+                    职位名称
                 </th>
                 <th ng-click="criteria.sort = 'Country';">
-                  Country
+                    学历
+                </th>
+                <th ng-click="criteria.sort = 'Name'; ">
+                    性别      
+                </th>
+                <th ng-click="criteria.sort = 'City';">
+                    年龄
+                </th>
+                <th ng-click="criteria.sort = 'Country';">
+                    居住地
+                </th>
+                <th ng-click="criteria.sort = 'Country';">
+                    毕业院校
                 </th>
               </tr>
               <tr ng-repeat="customer in customers">
                 <td ng-bind="customer.Name"></td>
-                <td ng-bind="customer.City"></td>
-                <td ng-bind="customer.Country"></td>
+                <td ng-bind="customer.Position"></td>
+                <td ng-bind="customer.Scholar"></td>
+                <td ng-bind="customer.Gender"></td>
+                <td ng-bind="customer.Age"></td>
+                <td ng-bind="customer.Location"></td>
+                <td ng-bind="customer.Graduatedschool"></td>
               </tr>
             </table>
             </div>
