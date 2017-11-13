@@ -4,7 +4,7 @@
       <title>Resume</title>
       <meta charset="utf-8">
       <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-
+      <script src="./node_modules/jquery/dist/jquery.min.js"></script>
       <script src="./node_modules/angular/angular.min.js"></script>
       <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
       <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
@@ -15,8 +15,8 @@
                 margin-bottom: 15px;
               }
       </style>
-      <nav class="navbar navbar-default">
-        <a class="navbar-brand" href="#">简历管理</a>
+      <nav class="navbar navbar-default" style="background-color:#337ab7">
+        <a class="navbar-brand" href="#" style="color:aliceblue">简历管理</a>
       </nav>
   </head>
   <body>
@@ -33,11 +33,11 @@
                                   <option title="邮箱" value="SF_1_1_6">邮箱</option>
                                   <option title="姓名" value="SF_1_1_7">姓名</option>                              
                               </select>
-                              <input class="form-control" type="text" placeholder="请输入求职者任职的职位名称" value="">                        
+                              <input class="form-control" type="text" placeholder="请输入求职者任职的职位名称" value="" ng-model="resume.Position">                        
                       </div>
                       <div class="form-group col-sm-4">
                           <label>公司名称</label>
-                          <input class="form-control" type="text" placeholder="请输入公司名称关键词" value="">                        
+                          <input class="form-control" type="text" placeholder="请输入公司名称关键词" value="" ng-model="">                        
                       </div>
                       <div class="form-group col-sm-4">
                           <label>学校名称</label>
@@ -47,7 +47,7 @@
               <div class="row">
                       <div class="form-group col-sm-4">
                           <label>现居住地</label>                 
-                          <input class="form-control">
+                          <input class="form-control"ng-model="resume.Location">
                       </div>
                       <div class="form-group col-sm-4">
                           <label>学        历</label>
@@ -95,22 +95,10 @@
                         <label><input type="radio" name="optionsRadios" value="2">女</label>
                     </div>                        
                   </div>
-                  <button type="submit" class="btn btn-primary">筛选简历</button>                                                     
-              </div>            
-      </form>            
-          <div class="input-group">
-            <input type="text"
-                   ng-model ="criteria.searchtext" 
-                   ng-model-options="{debounce: {'default': 1000, 'blur': 0}}"
-                   class="form-control" 
-                   placeholder="Search" >
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <i class="glyphicon glyphicon-search"></i></button>
-            </div>
-          </div>
-                                                     
-          <div>
+                  <button type="submit" class="btn btn-primary"  ng-click="search()">筛选简历</button>                                                     
+              </div>
+      </form>
+          <div style="margin-top:50px">
             <div class="panel panel-default">
               <!-- Default panel contents -->
               <div class="panel-heading h4">
@@ -172,10 +160,9 @@
               </li>
             </ul>
            </div>  
-        </div>  
-                                                            
+        </div>                                                             
             <!-- Dropdown Style -->  
-            <div class="row" style="background-color:#f1e1d1; padding:7px;">
+            <div class="row" style="background-color:#337ab7; padding:7px; color:aliceblue">
                 <div class="col-lg-6 ">                              
                     Showing: {{(criteria.page -1) * criteria.pagesize + 1}} - 
                              {{ ((criteria.page -1) * criteria.pagesize + paging.showing)}} 
@@ -188,9 +175,9 @@
                                  ng-model='criteria.page'
                                  min="1"
                                  max="{{paging.totalpages}}"
-                                 style='width:70px;' />
+                                 style='width:70px;color:#337ab7' />
                     of {{paging.totalpages}}
-                    with page size <select ng-model="criteria.pagesize" ng-options="obj as obj for obj in paging.pagingOptions">  
+                    with page size <select ng-model="criteria.pagesize" ng-options="obj as obj for obj in paging.pagingOptions" style="color:#337ab7">  
                   </div>
                 </div>
             </div>    
