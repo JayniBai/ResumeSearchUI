@@ -1,0 +1,77 @@
+<style>
+    .select-address {
+        overflow: hidden;
+        position:fixed;
+        left: 50%;
+        z-index: 19911125;
+        transition:0.3s;
+        box-shadow: 0 3px 12px rgba(0,0,0,.175);
+        background: #fff;
+        display: none;
+    }
+
+    .select-address-container ul {
+        width: 480px;
+        list-style: none;
+        margin: 0px;
+        padding: 10px;
+    }
+    .select-address-container ul span {
+        font-size: 13px;
+        list-style: none;
+        display: inline-block;
+        margin:5px 7px;
+        cursor: pointer;
+    }
+
+    .select-address-container ul li {
+        width: 240px;
+        padding: 10px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .select-address-container ul li:nth-child(even) {
+        background: #eee;
+    }
+
+    .select-address-container ul li span {
+        font-size: 13px;
+        list-style: none;
+        display: inline-block;
+        margin:5px 7px;
+        cursor: pointer;
+    }
+
+    .select-address-footer {
+        border-top: 1px solid #eee;
+        padding: 10px 15px;
+        overflow: hidden;
+    }
+
+    .select-address-footer input {
+        min-width: 50%;
+    }
+</style>
+
+    <div class="select-address-container">
+            <ul>
+                <div style="color:#337ab7;font-size:20px" align="center">主要城市</div>
+                <span ng-repeat="item in mainCitys"
+                ng-click="setCity(item.mainCity)"
+                ng-class="{'label label-success': mainCity === item.mainCity}">
+                    {{item.mainCity}}
+                </span>                                    
+            </ul>
+        
+    </div>
+
+    <div class="select-address-footer">
+        <span class="pull-right">
+            <button ng-click="clear()" class="btn btn-sm btn-link">清空</button>
+            <button ng-click="submit()" class="btn btn-sm btn-success" type="submit">确定</button>
+        </span>
+
+        <strong class="text-danger">{{ c }}</strong>
+        <input class="form-control input-sm" type="text" placeholder="城市" />
+    </div>
