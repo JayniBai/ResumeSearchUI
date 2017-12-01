@@ -6,7 +6,7 @@
         z-index: 2147483647;
         transition:0.3s;
         box-shadow: 0 3px 12px rgba(0,0,0,.175);
-         background: #F3F5F7; 
+        background: rgb(255, 255, 255); 
         /* display: none; */
     }
 
@@ -56,12 +56,15 @@
 <div class="select-address form-inline">
         <div class="select-address-container">
                 <ul>
-                    <div style="color:#337ab7;font-size:20px;margin-bottom: 10px" align="center">主要城市</div>
+                    <div style="color:#337ab7;font-size:15px;margin-bottom: 10px" align="center">主要城市</div>
                     <span ng-repeat="item in mainCitys"
                     ng-click="setCity(item.mainCity)"
                     ng-class="{'label label-success': mainCity === item.mainCity}">
                         {{item.mainCity}}
                     </span> 
+                </ul>
+                <ul>
+                    <div style="color:#337ab7;font-size:15px;margin-bottom: 10px" align="center">其他省市</div>
                 </ul>
         </div>
         

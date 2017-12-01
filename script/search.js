@@ -16,7 +16,7 @@ var myapp = angular.module('myapp', ['ngAnimate'])
     desc : false 
   };
 
-  // $scope.showAddress=false;
+  $scope.showAddress=false;
   $scope.paging ={
     total : 0,
     totalpages: 0,
@@ -100,8 +100,21 @@ var myapp = angular.module('myapp', ['ngAnimate'])
    }
 
    $scope.LoadAddressSelection = function(){
+    console.log($scope.showAddress);
     $scope.showAddress = !$scope.showAddress;
+    $scope.$broadcast("showAddress",{showAddress: $scope.showAddress});
    }
+
+   $scope.$on("fillInAddress",function(event,args){
+    $scope.Location = args.selectedCitys;
+    console.log($scope.Location);
+  })
+
+  $scope.$on("showAddressChanged",function(event,args){
+    $scope.showAddress = args.showAddress;
+    console.log($scope.showAddress);
+  })
+
 }]
 );
 
