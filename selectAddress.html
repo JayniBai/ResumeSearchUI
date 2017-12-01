@@ -1,12 +1,12 @@
 <style>
     .select-address {
         /* overflow: hidden; */
-        position:fixed;
+        position: absolute;
         left: 50%;
-        z-index: 19911125;
+        z-index: 2147483647;
         transition:0.3s;
         box-shadow: 0 3px 12px rgba(0,0,0,.175);
-        background: #fff;
+         background: #F3F5F7; 
         /* display: none; */
     }
 
@@ -20,7 +20,7 @@
         font-size: 13px;
         list-style: none;
         display: inline-block;
-        margin:5px 7px;
+        margin:10px 10px;
         cursor: pointer;
     }
 
@@ -56,7 +56,7 @@
 <div class="select-address form-inline">
         <div class="select-address-container">
                 <ul>
-                    <div style="color:#337ab7;font-size:20px" align="center">主要城市</div>
+                    <div style="color:#337ab7;font-size:20px;margin-bottom: 10px" align="center">主要城市</div>
                     <span ng-repeat="item in mainCitys"
                     ng-click="setCity(item.mainCity)"
                     ng-class="{'label label-success': mainCity === item.mainCity}">

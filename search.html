@@ -21,8 +21,8 @@
       </nav>
   </head>
   <body>
-      <div class='container' ng-app="myapp" ng-controller ="customerCtrl" ng-init="search()">  
-          <form class="form-inline" role="form" style="line-height:5px">
+      <div class='container' ng-app="myapp" ng-controller ="searchResume" ng-init="search()">  
+          <form class="form-inline" role="form" style="line-height:5px" autocomplete="off">
               <div class="row">
                       <div class="form-group col-sm-4">
                               <label> 关键词:</label>
@@ -38,7 +38,7 @@
                       </div>
                       <div class="form-group col-sm-4">
                           <label>公司名称</label>
-                          <input class="form-control" type="text" placeholder="请输入公司名称关键词" value="" ng-model=""> 
+                          <input class="form-control" type="text" placeholder="请输入公司名称关键词" value=""> 
                       </div>
                       <div class="form-group col-sm-4">
                           <label>学校名称</label>
@@ -48,8 +48,10 @@
               <div class="row">
                       <div class="form-group col-sm-4">
                           <label>现居住地</label>                 
-                          <input class="form-control" ng-model="resume.Location">
-                          <!-- <select-address></select-address> -->
+                          <input class="form-control" ng-model="selected">
+                           <button class="btn" ng-click="LoadAddressSelection()"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                           <select-address ng-show="showAddress"></select-address>
+                           
                       </div>
                       <div class="form-group col-sm-4">
                           <label>学        历</label>

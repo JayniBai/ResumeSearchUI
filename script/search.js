@@ -1,5 +1,5 @@
-angular.module('myapp', ['ngAnimate'])
-.controller('customerCtrl',['$scope', '$filter', function($scope,$filter){
+var myapp = angular.module('myapp', ['ngAnimate'])
+.controller('searchResume',['$scope', '$filter', function($scope,$filter){
   $scope.resume={
     Name:'',
     Position: '',
@@ -16,6 +16,7 @@ angular.module('myapp', ['ngAnimate'])
     desc : false 
   };
 
+  // $scope.showAddress=false;
   $scope.paging ={
     total : 0,
     totalpages: 0,
@@ -98,8 +99,13 @@ angular.module('myapp', ['ngAnimate'])
        $scope.criteria.page++;
    }
 
-    
-}]);
+   $scope.LoadAddressSelection = function(){
+    $scope.showAddress = !$scope.showAddress;
+   }
+}]
+);
+
+
 
 var customers = [ {"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
 {"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
