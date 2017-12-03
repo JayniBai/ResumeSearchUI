@@ -52,6 +52,43 @@
     .select-address-footer input {
         min-width: 50%;
     }
+       
+    .tableDiv{
+            width:600px;
+            min-height:400px;
+            border:1px solid grey;
+        }
+        .tdDiv{
+           display:inline-block;
+           width:16%;
+           height:40px;
+           line-height:40px;
+           text-indent:20px;
+           cursor:pointer;
+           color:#336699;
+           background: url(imgs/QQ截图20171202150726.png) no-repeat 0px 12.5px;
+           position: relative;
+        }
+        .toolTipDiv{
+            width:400px;
+            height:300px;
+            border:1px solid red;
+            display: none;
+            overflow: hidden;
+
+           
+
+        }
+        .cityDiv{
+            display:inline-block;
+           width:33.3%;
+           height:40px;
+           line-height:40px;
+           text-indent:20px;
+           cursor:pointer;
+           color:#336699;
+           border-left: 1px solid grey;
+        }
 </style>
 <div class="select-address form-inline">
         <div class="select-address-container">
@@ -65,7 +102,12 @@
                 </ul>
                 <ul>
                     <div style="color:#337ab7;font-size:15px;margin-bottom: 10px" align="center">其他省市</div>
+                    <ul class="tableDiv"></ul>
                 </ul>
+                
+        </div>
+        <div>
+    
         </div>
         
         <div class="select-address-footer">
