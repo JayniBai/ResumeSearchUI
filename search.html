@@ -12,7 +12,6 @@
       <script src="./script/selectAddress.js"></script>
       <style>
         .row {
-                margin-top: 5px;
                 margin-bottom: 15px;
               }
       </style>
@@ -22,39 +21,33 @@
   </head>
   <body>
       <div class='container' ng-app="myapp" ng-controller ="searchResume" ng-init="search()">  
-          <form class="form-inline" role="form" style="line-height:5px" autocomplete="off">
+          <form class="form-inline" role="form" autocomplete="off">
               <div class="row">
-                      <div class="form-group col-sm-4">
-                              <label> 关键词:</label>
-                              <select class="selectpicker" id="choosekey" style="width:53px;">
-                                  <option title="职位" value="SF_1_1_3">职位</option>
-                                  <option title="工作和项目经验" value="SF_1_1_47">工作和项目经验</option>
-                                  <option title="全文" value="SF_1_1_4">全文</option>
-                                  <option title="简历ID" value="SF_1_1_5">简历ID</option>
-                                  <option title="邮箱" value="SF_1_1_6">邮箱</option>
-                                  <option title="姓名" value="SF_1_1_7">姓名</option>                              
-                              </select>
-                              <input class="form-control" type="text" placeholder="请输入求职者任职的职位名称" value="" ng-model="resume.Position">                        
-                      </div>
-                      <div class="form-group col-sm-4">
-                          <label>公司名称</label>
-                          <input class="form-control" type="text" placeholder="请输入公司名称关键词" value=""> 
-                      </div>
-                      <div class="form-group col-sm-4">
-                          <label>学校名称</label>
-                          <input class="form-control" type="text" maxlength="200" placeholder="请输入学校名称关键词" value="">
-                      </div>                                         
+                    <div class="form-group col-sm-4">
+                            <label class="col-sm-3"> 关键词 </label>
+                            <input class="form-control" type="text" placeholder="请输入简历关键字" value="" ng-model="resume.Position">                        
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label class="col-sm-3">公司名称</label>
+                        <input class="form-control" type="text" placeholder="请输入公司名称关键词" value=""> 
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label class="col-sm-3">学校名称</label>
+                        <input class="form-control" type="text" maxlength="200" placeholder="请输入学校名称关键词" value="">
+                    </div>     
               </div>
               <div class="row">
-                      <div class="form-group col-sm-4">
-                          <label>现居住地</label>                 
-                          <input class="form-control" ng-model="Location">
-                           <button class="btn" ng-click="LoadAddressSelection()"><span class="glyphicon glyphicon-chevron-down"></span></button>
-                           <select-address ng-show="showAddress"></select-address>
-                           
+                    <div class="form-group col-sm-4">
+                      <label class="col-sm-3">居住地</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" ng-model="Location">
+                        <div class="input-group-addon" ng-click="LoadAddressSelection()"></div>
+                        <select-address ng-show="showAddress"></select-address>
                       </div>
+                    </div>
+
                       <div class="form-group col-sm-4">
-                          <label>学        历</label>
+                          <label class="col-sm-3">学        历</label>
                           <select class="form-control">
                               <option value="" selected="">不限</option>
                               <option value="1">初中</option>
@@ -76,19 +69,19 @@
                           </select>
                        </div>
                        <div class="form-group col-sm-4">
-                          <label class="search-item-name">职位类别</label>
+                          <label class="col-sm-3">职位类别</label>
                           <input class="form-control">
                        </div>
               </div>
               <div class="row">
                   <div class="form-group col-sm-4">
-                          <label class="search-item-name">年        龄</label>
-                          <input class="rd-input input-xsmall" type="text" min="0" max="100" value="" data-type="number" size="4">
+                          <label class="col-sm-3">年        龄</label>
+                          <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4">
                           -
-                          <input class="rd-input input-xsmall" type="text" min="0" max="100" value="" data-type="number" size="4">  
+                          <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4">  
                   </div>            
                   <div class="form-group col-sm-4">
-                      <label>性        别</label>
+                      <label class="col-sm-3">性        别</label>
                     <div class="radio">
                         <label><input type="radio" name="optionsRadios" checked="checked" value="">不限</label>
                     </div>
@@ -106,7 +99,7 @@
             <div class="panel panel-default">
               <!-- Default panel contents -->
               <div class="panel-heading h4">
-                  Resume Results
+                  简历列表
               </div>
         
               <!-- Table --> 
