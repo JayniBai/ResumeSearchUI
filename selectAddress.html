@@ -25,7 +25,6 @@
     }
 
     .select-address-container ul li {
-        width: 240px;
         padding: 10px;
         display: table-cell;
         vertical-align: middle;
@@ -39,7 +38,7 @@
         font-size: 13px;
         list-style: none;
         display: inline-block;
-        margin:5px 7px;
+        margin:10px 10px;
         cursor: pointer;
     }
 
@@ -58,13 +57,27 @@
                 <ul>
                     <div style="color:#337ab7;font-size:15px;margin-bottom: 10px" align="center">主要城市</div>
                     <span ng-repeat="item in mainCitys"
-                    ng-click="setCity(item.mainCity)"
+                    ng-click="aSet.mainCity(item.mainCity)"
                     ng-class="{'label label-success': mainCity === item.mainCity}">
                         {{item.mainCity}}
                     </span> 
                 </ul>
                 <ul>
                     <div style="color:#337ab7;font-size:15px;margin-bottom: 10px" align="center">其他省市</div>
+                    <li>
+                        <span ng-repeat="item in provinces"
+                        ng-click="aSet.province(item)"
+                        ng-class="{'label label-success': province.name === item.name}">
+                            {{item.name}}
+                        </span> 
+                    </li>
+                    <li ng-style="{'width': citys!=undefined ? '240px' : '0px'}">
+                        <span ng-repeat="item in citys"
+                        ng-click="aSet.city(item)"
+                        ng-class="{'label label-success': city.name === item.name}">
+                            {{item.name}}
+                        </span> 
+                    </li>
                 </ul>
         </div>
         
