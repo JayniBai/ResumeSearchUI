@@ -14,6 +14,13 @@
         .row {
                 margin-bottom: 15px;
               }
+        .sortorder:after {
+              content: '\25b2';
+              }
+        .sortorder.reverse:after {
+           content: '\25bc';
+        }
+
       </style>
       <nav class="navbar navbar-default" style="background-color:#337ab7">
         <a class="navbar-brand" href="#" style="color:aliceblue">简历管理</a>
@@ -25,21 +32,23 @@
               <div class="row">
                     <div class="form-group col-sm-4">
                             <label class="col-sm-3"> 关键词 </label>
-                            <input class="form-control" type="text" placeholder="请输入简历关键字" value="" ng-model="resume.Position">                        
+                            <input class="form-control" type="text" placeholder="请输入简历关键字" value="" ng-model="resume.Position" style="width:75%">                        
                     </div>
                     <div class="form-group col-sm-4">
-                        <label class="col-sm-3">公司名称</label>
-                        <input class="form-control" type="text" placeholder="请输入公司名称关键词" value=""> 
-                    </div>
+                            <label class="col-sm-3">工作年限</label>
+                            <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4" style="width:34.5%">
+                            &nbsp;-&nbsp;
+                            <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4"style="width:34.5%">  
+                      </div>
                     <div class="form-group col-sm-4">
-                        <label class="col-sm-3">学校名称</label>
-                        <input class="form-control" type="text" maxlength="200" placeholder="请输入学校名称关键词" value="">
+                        <label class="col-sm-3 col-sm-9">学校名称</label>
+                        <input class="form-control" type="text" maxlength="200" placeholder="请输入学校名称关键词" value="" style="width:75%">
                     </div>     
               </div>
               <div class="row">
                     <div class="form-group col-sm-4">
                       <label class="col-sm-3">居住地</label>
-                      <div class="input-group">
+                      <div class="input-group col-sm-9">
                         <input type="text" class="form-control" ng-model="Location">
                         <div class="input-group-addon" ng-click="LoadAddressSelection()"></div>
                         <select-address ng-show="showAddress"></select-address>
@@ -47,56 +56,67 @@
                     </div>
 
                       <div class="form-group col-sm-4">
-                          <label class="col-sm-3">学        历</label>
-                          <select class="form-control">
-                              <option value="" selected="">不限</option>
-                              <option value="1">初中</option>
-                              <option value="2">中技</option>
-                              <option value="3">高中</option>
-                              <option value="4">中专</option>
-                              <option value="5">大专</option>
-                              <option value="7">本科</option>
-                              <option value="9">硕士</option>
-                              <option value="11">MBA</option>
-                              <option value="13">EMBA</option>
-                              <option value="15">博士</option>
-                              <option value="0">其它</option>
-                          </select>  -
-                          <select class="form-control">
-                              <option value="13">EMBA</option>
-                              <option value="15">博士</option>
-                              <option value="16" selected="">及以上</option>
-                          </select>
+                          <label class="col-sm-3">学&nbsp;&nbsp;&nbsp;历</label>
+                          <select class="form-control" style="width:34.5%">
+                                <option value="" selected="">不限</option>
+                                <option value="1">初中</option>
+                                <option value="2">中技</option>
+                                <option value="3">高中</option>
+                                <option value="4">中专</option>
+                                <option value="5">大专</option>
+                                <option value="7">本科</option>
+                                <option value="9">硕士</option>
+                                <option value="11">MBA</option>
+                                <option value="13">EMBA</option>
+                                <option value="15">博士</option>
+                                <option value="0">其它</option>
+                            </select>  <span>&nbsp;-&nbsp;</span>
+                            <select class="form-control" style="width:34.5%">
+                                <option value="13">EMBA</option>
+                                <option value="15">博士</option>
+                                <option value="16" selected="">及以上</option>
+                            </select>
+                          
                        </div>
                        <div class="form-group col-sm-4">
-                          <label class="col-sm-3">职位类别</label>
-                          <input class="form-control">
-                       </div>
+                            <label class="col-sm-3">公司名称</label>
+                            <input class="form-control col-sm-9" type="text" placeholder="请输入公司名称关键词" value="" style="width:75%"> 
+                       </div> 
               </div>
               <div class="row">
-                  <div class="form-group col-sm-4">
-                          <label class="col-sm-3">年        龄</label>
-                          <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4">
-                          -
-                          <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4">  
-                  </div>            
-                  <div class="form-group col-sm-4">
-                      <label class="col-sm-3">性        别</label>
-                    <div class="radio">
-                        <label><input type="radio" name="optionsRadios" checked="checked" value="">不限</label>
+                    <div class="form-group col-sm-4">
+                            <label class="col-sm-3">性&nbsp;&nbsp;&nbsp;别</label>
+                            <div class="radio">
+                                <label><input type="radio" name="optionsRadios" checked="checked" value="">不限</label>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                            <div class="radio">
+                                <label><input type="radio" name="optionsRadios" value="1">男</label>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                            <div class="radio">
+                                <label><input type="radio" name="optionsRadios" value="2">女</label>
+                            </div>                        
                     </div>
-                    <div class="radio">
-                        <label><input type="radio" name="optionsRadios" value="1">男</label>
+                    <div class="form-group col-sm-4">
+                          <label class="col-sm-3">年&nbsp;&nbsp;&nbsp;龄</label>
+                          <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4" style="width:34.5%">
+                          &nbsp;-&nbsp;
+                          <input class="form-control" type="text" min="0" max="100" value="" data-type="number" size="4" style="width:34.5%">  
                     </div>
-                    <div class="radio">
-                        <label><input type="radio" name="optionsRadios" value="2">女</label>
-                    </div>                        
-                  </div>
-                  <button type="submit" class="btn btn-primary"  ng-click="search()">筛选简历</button>                                                     
+                    <div class="form-group col-sm-4">
+                            <label class="col-sm-3">职位类别</label>
+                            <input class="form-control" style="width:75%">
+                    </div>
               </div>
-      </form>
-          <div style="margin-top:50px">
-            <div class="panel panel-default">
+              <button type="submit" class="btn btn-primary"  ng-click="search()" style="float:right">筛选简历</button>   
+          </form>
+          <br />
+          <br />
+          <br />
+          <br />
+          
+          <div class="panel panel-default">
               <!-- Default panel contents -->
               <div class="panel-heading h4">
                   简历列表
@@ -104,30 +124,31 @@
         
               <!-- Table --> 
               <table class="table table-border">
-              <tr>
-                <th ng-click="criteria.sort = 'Name'; ">
-                    简历名称      
+                <tr>
+                <th ng-click="criteria.sort = 'Name'; reverse = !reverse">
+                    简历名称<span class="sortorder" ng-show="criteria.sort === 'Name'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th ng-click="criteria.sort = 'City';">
-                    职位名称
+
+                <th ng-click="criteria.sort = 'Position'; reverse = !reverse">
+                    职位名称<span class="sortorder" ng-show="criteria.sort === 'Position'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th ng-click="criteria.sort = 'Country';">
-                    学历
+                <th ng-click="criteria.sort = 'Scholar'; reverse = !reverse">
+                    学历<span class="sortorder" ng-show="criteria.sort === 'Scholar'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th ng-click="criteria.sort = 'Name'; ">
-                    性别      
+                <th ng-click="criteria.sort = 'Gender'; reverse = !reverse ">
+                    性别<span class="sortorder" ng-show="criteria.sort === 'Gender'" ng-class="{reverse: reverse}">
                 </th>
-                <th ng-click="criteria.sort = 'City';">
-                    年龄
+                <th ng-click="criteria.sort = 'Age'; reverse = !reverse">
+                    年龄<span class="sortorder" ng-show="criteria.sort === 'Age'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th ng-click="criteria.sort = 'Country';">
-                    居住地
+                <th ng-click="criteria.sort = 'Location'; reverse = !reverse">
+                    居住地<span class="sortorder" ng-show="criteria.sort === 'Location'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th ng-click="criteria.sort = 'Country';">
-                    毕业院校
+                <th ng-click="criteria.sort = 'Graduatedschool'; reverse = !reverse">
+                    毕业院校<span class="sortorder" ng-show="criteria.sort === 'Graduatedschool'" ng-class="{reverse: reverse}"></span>
                 </th>
-              </tr>
-              <tr ng-repeat="customer in customers">
+                </tr>
+                <tr ng-repeat="customer in customers | orderBy:criteria.sort:reverse">
                 <td ng-bind="customer.Name"></td>
                 <td ng-bind="customer.Position"></td>
                 <td ng-bind="customer.Scholar"></td>
@@ -135,9 +156,8 @@
                 <td ng-bind="customer.Age"></td>
                 <td ng-bind="customer.Location"></td>
                 <td ng-bind="customer.Graduatedschool"></td>
-              </tr>
+                </tr>
             </table>
-            </div>
           </div>
                                               
         <div class="row">
@@ -157,8 +177,7 @@
               </li>
             </ul>
            </div>  
-        </div>                                                             
-            <!-- Dropdown Style -->  
+        </div>
             <div class="row" style="background-color:#337ab7; padding:7px; color:aliceblue">
                 <div class="col-lg-6 ">                              
                     Showing: {{(criteria.page -1) * criteria.pagesize + 1}} - 
@@ -177,8 +196,10 @@
                     with page size <select ng-model="criteria.pagesize" ng-options="obj as obj for obj in paging.pagingOptions" style="color:#337ab7">  
                   </div>
                 </div>
-            </div>    
-        
+            </div> 
+
+            <!-- Dropdown Style -->
+               
         </div>
   </body>
 </html>

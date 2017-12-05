@@ -16,6 +16,8 @@ var myapp = angular.module('myapp', ['ngAnimate'])
     desc : false 
   };
 
+  $scope.reverse = true;  
+
   $scope.showAddress=false;
   $scope.paging ={
     total : 0,
@@ -24,10 +26,11 @@ var myapp = angular.module('myapp', ['ngAnimate'])
     pagearray: [],
     pagingOptions: [5,10,20,30,40,50]
   };
-  
+
   $scope.search = function(){   
     $scope.customers =  ($filter('filter')(customers, {Name: $scope.resume.Name,Position:$scope.resume.Position,Scholar:$scope.resume.Scholar,
       Gender:$scope.resume.Gender,Location:$scope.resume.Location,Graduatedschool:$scope.resume.Graduatedschool }));
+
     $scope.paging.total = $scope.customers.length;    
     var a = ($scope.criteria.page - 1) * $scope.criteria.pagesize;
     var b = $scope.criteria.page  * $scope.criteria.pagesize;
@@ -121,9 +124,9 @@ var myapp = angular.module('myapp', ['ngAnimate'])
 
 
 var customers = [ {"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
-{"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
-{"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
 {"Name":"自动化","Position":"开发测试工程师","Scholar":"大学","Gender":"女","Age":"20","Location":"西安","Graduatedschool":"西安电子科技大学"},
+{"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
+{"Name":"测试工程师","Position":"测试工程师","Scholar":"大学","Gender":"男","Age":"30","Location":"西安","Graduatedschool":"西安邮电大学"},
 {"Name":"自动化","Position":"开发测试工程师","Scholar":"大学","Gender":"女","Age":"20","Location":"西安","Graduatedschool":"西安电子科技大学"},
 {"Name":"自动化","Position":"开发测试工程师","Scholar":"大学","Gender":"女","Age":"20","Location":"西安","Graduatedschool":"西安电子科技大学"},
 {"Name":"自动化","Position":"开发测试工程师","Scholar":"大学","Gender":"女","Age":"20","Location":"西安","Graduatedschool":"西安电子科技大学"}]
