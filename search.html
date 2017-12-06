@@ -149,7 +149,9 @@
                 </th>
                 </tr>
                 <tr ng-repeat="customer in customers | orderBy:criteria.sort:reverse">
-                <td ng-bind="customer.Name"></td>
+                <td>
+                    <a href="personalResume.html" ng-bind="customer.Name"></a>
+                </td>
                 <td ng-bind="customer.Position"></td>
                 <td ng-bind="customer.Scholar"></td>
                 <td ng-bind="customer.Gender"></td>

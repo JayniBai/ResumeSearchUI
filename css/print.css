@@ -1,0 +1,31 @@
+.no-print {display:none;}
+
+#wrapper, .wrapper-mid {
+	background: none;
+}
+
+.wrapper-top, .wrapper-bottom  {
+	display:none;
+}
+
+#paper {
+	widows: 828px;
+	margin:0;
+}
+
+.paper-top, .paper-bottom {
+	display:none;
+}
+
+#message {
+	display:none;
+}
+
+.entry {
+	width:720px;
+	display: block;
+	padding-top:20px;
+	clear: both;
+	margin-left:4px;
+	padding-left:0px;
+}
